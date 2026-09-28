@@ -1,0 +1,12 @@
+.heading{
+    color: brown;
+    background-color: yellow;
+}
+
+.font{
+    font-style: italic;
+}
+
+.mode{
+    text-decoration: line-through;
+}

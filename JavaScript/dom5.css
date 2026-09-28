@@ -1,0 +1,21 @@
+body{
+    background-color: pink;
+}
+
+#h1_id{
+    color: blue;
+    text-decoration: line-through;
+}
+
+#h{
+    color: brown;
+    font-style: italic;
+}
+
+.unique{
+    font-size: 1.5rem;
+}
+
+.new{
+    font-size: small;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikita Rane | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Fira Code', monospace;
+      background-color: #1e1e2e;
+      color: #d1d5db;
+    }
+    .tab {
+      cursor: pointer;
+      padding: 6px 12px;
+      background: #2d2d3a;
+      border-radius: 6px 6px 0 0;
+      margin-right: 4px;
+      color: #9ca3af;
+      transition: all 0.2s;
+    }
+    .tab.active {
+      background: #1e1e2e;
+      color: #fff;
+      border-bottom: 2px solid #38bdf8;
+    }
+    .editor {
+      background: #1e1e2e;
+      border: 1px solid #2d2d3a;
+      padding: 20px;
+      border-radius: 0 8px 8px 8px;
+      min-height: 250px;
+    }
+    .keyword { color: #38bdf8; }
+    .string { color: #a3e635; }
+    .comment { color: #9ca3af; font-style: italic; }
+  </style>
+</head>
+<body class="flex flex-col items-center p-6">
+
+  <h1 class="text-3xl text-white mb-4">👩‍💻 Nikita Rane</h1>
+  <p class="text-gray-400 mb-8">Full Stack Developer | Java | TypeScript | Node.js</p>
+
+  <!-- Tabs -->
+  <div class="flex">
+    <div class="tab active" onclick="openTab('about')">about.html</div>
+    <div class="tab" onclick="openTab('skills')">skills.json</div>
+    <div class="tab" onclick="openTab('projects')">projects.ts</div>
+    <div class="tab" onclick="openTab('contact')">contact.css</div>
+  </div>
+
+  <!-- Editor Window -->
+  <div class="editor w-full max-w-2xl mt-2" id="editor">
+    <!-- About -->
+    <div id="about" class="tab-content">
+      <span class="comment">// About Me</span><br>
+      <span class="keyword">const</span> name = <span class="string">"Nikita Rane"</span>;<br>
+      <span class="keyword">const</span> role = <span class="string">"Full Stack Developer"</span>;<br>
+      <span class="keyword">const</span> location = <span class="string">"India"</span>;<br>
+    </div>
+
+    <!-- Skills -->
+    <div id="skills" class="tab-content hidden">
+      <span class="comment">// My Skills in JSON</span><br>
+      {<br>
+      &nbsp;&nbsp;"languages": ["Java", "C++", "C#", "Python"],<br>
+      &nbsp;&nbsp;"frontend": ["HTML", "CSS", "Bootstrap", "TypeScript", "Angular"],<br>
+      &nbsp;&nbsp;"backend": ["Node.js", "Express.js"],<br>
+      &nbsp;&nbsp;"databases": ["MongoDB", "MySQL"]<br>
+      }
+    </div>
+
+    <!-- Projects -->
+    <div id="projects" class="tab-content hidden">
+      <span class="comment">// Recent Projects</span><br>
+      <span class="keyword">function</span> showProjects() {<br>
+      &nbsp;&nbsp;<span class="keyword">return</span> [<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;{ title: <span class="string">"File Packer Unpacker"</span>, tech: <span class="string">"Java, XOR Encryption"</span> },<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;{ title: <span class="string">"E-Commerce Clone"</span>, tech: <span class="string">"Angular, Node.js, MongoDB"</span> },<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;{ title: <span class="string">"Portfolio Website"</span>, tech: <span class="string">"TypeScript, Tailwind"</span> }<br>
+      &nbsp;&nbsp;];<br>
+      }
+    </div>
+
+    <!-- Contact -->
+    <div id="contact" class="tab-content hidden">
+      <span class="comment">/* Contact Information */</span><br>
+      .email { content: "nikita.rane@email.com"; }<br>
+      .linkedin { content: "linkedin.com/in/nikitarane"; }<br>
+      .github { content: "github.com/nikitarane"; }<br>
+    </div>
+  </div>
+
+  <script>
+    function openTab(tabId) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+      document.getElementById(tabId).classList.remove('hidden');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

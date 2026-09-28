@@ -1,0 +1,39 @@
+<div class="fixed bottom-5 right-5 w-80">
+  <div id="chatbox" class="bg-white dark:bg-gray-900 shadow-lg rounded-lg p-4 h-96 overflow-y-auto text-sm"></div>
+  <div class="flex mt-2">
+    <input id="userInput" type="text" placeholder="Ask me about my skills..." 
+      class="flex-1 border rounded-l-lg p-2 dark:bg-gray-800 dark:text-white">
+    <button onclick="sendMessage()" class="bg-cyan-500 text-white px-4 rounded-r-lg">Send</button>
+  </div>
+</div>
+
+<script>
+  const chatbox = document.getElementById("chatbox");
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const msg = input.value;
+    if (!msg) return;
+
+    // Display user message
+    chatbox.innerHTML += `<div class='text-right mb-2'><span class='bg-cyan-500 text-white px-2 py-1 rounded-lg'>${msg}</span></div>`;
+
+    // AI Mock Responses (can connect to real AI API later)
+    let response = "I’m still learning!";
+
+    if (msg.toLowerCase().includes("java")) {
+      response = "I have strong Java experience, including building a File Packer-Unpacker with XOR encryption.";
+    } else if (msg.toLowerCase().includes("project")) {
+      response = "One of my key projects is an E-Commerce clone using Angular, Node.js, and MongoDB.";
+    } else if (msg.toLowerCase().includes("skills")) {
+      response = "I’m skilled in Java, Python, C++, C#, TypeScript, Angular, Node.js, MongoDB, and MySQL.";
+    } else if (msg.toLowerCase().includes("hire")) {
+      response = "You should hire me because I combine 10 years of IT experience with modern full-stack development skills.";
+    }
+
+    chatbox.innerHTML += `<div class='text-left mb-2'><span class='bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded-lg'>${response}</span></div>`;
+    chatbox.scrollTop = chatbox.scrollHeight;
+
+    input.value = "";
+  }
+</script>

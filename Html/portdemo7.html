@@ -1,0 +1,40 @@
+<div class="flex h-screen bg-gray-900 text-gray-100 dark:bg-gray-100 dark:text-gray-900">
+
+  <!-- Sidebar -->
+  <aside class="w-48 bg-gray-800 dark:bg-gray-200 p-3">
+    <h2 class="font-bold mb-4">EXPLORER</h2>
+    <ul>
+      <li onclick="openFile('about')">about.js</li>
+      <li onclick="openFile('skills')">skills.json</li>
+      <li onclick="openFile('projects')">projects.html</li>
+      <li onclick="openFile('contact')">contact.py</li>
+    </ul>
+    <button onclick="toggleTheme()" class="mt-5 border p-1 rounded">🌙/☀️</button>
+  </aside>
+
+  <!-- Editor Area -->
+  <main class="flex-1 p-6" id="editorArea">
+    <h2 class="text-lg font-mono">Select a file to view content</h2>
+  </main>
+</div>
+
+<script>
+function openFile(file) {
+  let content = "";
+  if (file === "about") {
+    content = `// About Me\nconst name = "Nikita Rane";\nconst role = "Full Stack Developer";`;
+  } else if (file === "skills") {
+    content = `{\n  "languages": ["Java", "C++", "Python", "C#"],\n  "frontend": ["HTML", "CSS", "TypeScript", "Angular"],\n  "backend": ["Node.js", "Express"],\n  "database": ["MongoDB", "MySQL"]\n}`;
+  } else if (file === "projects") {
+    content = `<div>// Projects\n- File Packer Unpacker (Java)\n- E-Commerce Clone (Angular, Node.js, MongoDB)\n- Chatbot (C#)\n- Email Automation (Python)</div>`;
+  } else if (file === "contact") {
+    content = `def contact_me(name, email):\n    return f"Message sent from {name} ({email})"`;
+  }
+  document.getElementById("editorArea").innerHTML = `<pre class="font-mono">${content}</pre>`;
+}
+
+// Dark/Light toggle
+function toggleTheme() {
+  document.documentElement.classList.toggle("dark");
+}
+</script>

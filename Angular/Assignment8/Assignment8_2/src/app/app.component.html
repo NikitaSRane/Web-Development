@@ -1,0 +1,4 @@
+<h1>This is {{title}}</h1>
+<app-child [Message]="childdata" (Myevent)="parentdata=$event"></app-child>
+<h2>Message from Child : {{parentdata}}</h2>
+<router-outlet></router-outlet>
